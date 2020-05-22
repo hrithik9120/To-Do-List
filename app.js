@@ -132,7 +132,7 @@ app.post("/delete", function(req, res){
 });
 
 let port=process.env.PORT;
-if(port == ""||port == NULL)
+if(port == ""||port == null)
 {
   port=3000
 }
