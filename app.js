@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://hrithik9120:hathway123@cluster0-x3lvp.mongodb.net/todolistDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://hrithik9120:hathway123@cluster0-x3lvp.mongodb.net/test?retryWrites=true&w=majority/todolistDB", {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
@@ -131,7 +131,12 @@ app.post("/delete", function(req, res){
 
 });
 
+let port=process.env.PORT;
+if(port == ""||port == NULL)
+{
+  port=3000
+}
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
